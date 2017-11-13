@@ -1,8 +1,6 @@
-FROM rabbitmq:3
+FROM rabbitmq:3.6.14
 
 MAINTAINER liuhui
-
-EXPOSE 6379
 
 RUN apt-get update
 
