@@ -8,6 +8,8 @@ DEAD_LETTER_EX = 'dead-letter-ex'
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
 
+channel.exchange_declare(exchange=DEAD_LETTER_EX, exchange_type='direct')
+
 channel.queue_declare(queue=DIST_QUEUE, durable=True)
 
 channel.queue_bind(exchange=DEAD_LETTER_EX,routing_key=DIST_QUEUE,queue=DIST_QUEUE)
